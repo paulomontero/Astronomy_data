@@ -10,4 +10,12 @@ print(data_total)
 data_total.plot(kind='bar',x='Country',y='Total papers')
 plt.savefig('Total_papers.pdf',bbox_inches="tight")
 plt.show()
-
+# *******************Next plot****************
+# grabbing data per year of every country
+data_costa_rica_year = pd.read_csv('data_per_year_costa_rica.csv',names=['year','Costa Rica'])
+data_guatemala_year = pd.read_csv('data_per_year_guatemala.csv',names=['year','Guatemala'])
+ax = plt.gca()
+data_costa_rica_year.plot(kind='line',x='year',y='Costa Rica',ax=ax)
+data_guatemala_year.plot(kind='line',x='year',y='Guatemala',color='magenta',ax=ax)
+plt.savefig('Growth.pdf')
+plt.show()
